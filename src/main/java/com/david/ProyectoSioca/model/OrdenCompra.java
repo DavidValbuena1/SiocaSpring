@@ -1,5 +1,6 @@
 package com.david.ProyectoSioca.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -14,44 +15,38 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "ordencompra")
-public class OrdenCompra {
+public class OrdenCompra implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int IdOrden;
+	private int Idorden;
 
 	@Temporal(TemporalType.DATE)
 	private Date Fecha;
 
-	private int CantidadProductos;
+	private int cantidadproductos;
 
-	private long PrecioUnidad;
+	private long preciounidad;
 
-	private long PrecioTotal;
+	private long preciototal;
 
-	private String Observaciones;
+	private String observaciones;
 	
-	private boolean Estado;
+	private boolean estado;
 
 	@ManyToOne
-	@JoinColumn(name = "IdProveedor")
+	@JoinColumn(name = "idproveedor")
 	private Proveedor proveedor;
 
-	
-	
-	public boolean Estado() {
-		return Estado;
+	public int getIdorden() {
+		return Idorden;
 	}
 
-	public void setEstado(boolean estado) {
-		Estado = estado;
-	}
-
-	public int getIdOrden() {
-		return IdOrden;
-	}
-
-	public void setIdOrden(int idOrden) {
-		IdOrden = idOrden;
+	public void setIdorden(int idOrden) {
+		this.Idorden = idOrden;
 	}
 
 	public Date getFecha() {
@@ -62,36 +57,44 @@ public class OrdenCompra {
 		Fecha = fecha;
 	}
 
-	public int getCantidadProductos() {
-		return CantidadProductos;
+	public int getCantidadproductos() {
+		return cantidadproductos;
 	}
 
-	public void setCantidadProductos(int cantidadProductos) {
-		CantidadProductos = cantidadProductos;
+	public void setCantidadproductos(int cantidadproductos) {
+		this.cantidadproductos = cantidadproductos;
 	}
 
-	public long getPrecioUnidad() {
-		return PrecioUnidad;
+	public long getPreciounidad() {
+		return preciounidad;
 	}
 
-	public void setPrecioUnidad(long precioUnidad) {
-		PrecioUnidad = precioUnidad;
+	public void setPreciounidad(long preciounidad) {
+		this.preciounidad = preciounidad;
 	}
 
-	public long getPrecioTotal() {
-		return PrecioTotal;
+	public long getPreciototal() {
+		return preciototal;
 	}
 
-	public void setPrecioTotal(long precioTotal) {
-		PrecioTotal = precioTotal;
+	public void setPreciototal(long preciototal) {
+		this.preciototal = preciototal;
 	}
 
 	public String getObservaciones() {
-		return Observaciones;
+		return observaciones;
 	}
 
 	public void setObservaciones(String observaciones) {
-		Observaciones = observaciones;
+		this.observaciones = observaciones;
+	}
+
+	public boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
 	}
 
 	public Proveedor getProveedor() {
@@ -102,15 +105,23 @@ public class OrdenCompra {
 		this.proveedor = proveedor;
 	}
 
-	public OrdenCompra(int idOrden, Date fecha, int cantidadProductos, long precioUnidad, long precioTotal,
-			String observaciones, Proveedor proveedor) {
+	@Override
+	public String toString() {
+		return "OrdenCompra [IdOrden=" + Idorden + ", Fecha=" + Fecha + ", cantidadproductos=" + cantidadproductos
+				+ ", preciounidad=" + preciounidad + ", preciototal=" + preciototal + ", observaciones=" + observaciones
+				+ ", estado=" + estado + ", proveedor=" + proveedor + "]";
+	}
+
+	public OrdenCompra(int idOrden, Date fecha, int cantidadproductos, long preciounidad, long preciototal,
+			String observaciones, boolean estado, Proveedor proveedor) {
 		super();
-		IdOrden = idOrden;
+		Idorden = idOrden;
 		Fecha = fecha;
-		CantidadProductos = cantidadProductos;
-		PrecioUnidad = precioUnidad;
-		PrecioTotal = precioTotal;
-		Observaciones = observaciones;
+		this.cantidadproductos = cantidadproductos;
+		this.preciounidad = preciounidad;
+		this.preciototal = preciototal;
+		this.observaciones = observaciones;
+		this.estado = estado;
 		this.proveedor = proveedor;
 	}
 
@@ -119,13 +130,7 @@ public class OrdenCompra {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public String toString() {
-		return "OrdenCompra [IdOrden=" + IdOrden + ", Fecha=" + Fecha + ", CantidadProductos=" + CantidadProductos
-				+ ", PrecioUnidad=" + PrecioUnidad + ", PrecioTotal=" + PrecioTotal + ", Observaciones=" + Observaciones
-				+ ", proveedor=" + proveedor + "]";
-	}
-
+	
 	
 
 }

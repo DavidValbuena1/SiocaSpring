@@ -43,7 +43,7 @@ public class Producto implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date Date;
 	
-	@Column(name="PrecioTotal")
+	@Column(name="preciototal")
 	private long PrecioTotal;
 	
 	@ManyToOne

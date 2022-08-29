@@ -1,7 +1,7 @@
 package com.david.ProyectoSioca.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,45 +9,46 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="TipoDocumento")
-public class TipoDocumento {
+@Table(name="tipodocumento")
+public class TipoDocumento implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int IdTipoDocumento;
-	@Column(name="TipoDocumento")
+	private int idtipodocumento;
+	@Column(name="tipodocumento")
 	private String Nombre;
 	
-	@OneToMany(mappedBy="TipoDocumento")
-	private List<Usuario> Usuario = new ArrayList<Usuario>();
+
 
 	public TipoDocumento() {
 		super();
 	}
 
-	public TipoDocumento(int idTipoDocumento, String nombre, List<Usuario> usuario) {
+	public TipoDocumento(int idTipoDocumento, String nombre) {
 		super();
-		IdTipoDocumento = idTipoDocumento;
+		idtipodocumento = idTipoDocumento;
 		Nombre = nombre;
-		Usuario = usuario;
 	}
 
 	@Override
 	public String toString() {
-		return "TipoDocumento [IdTipoDocumento=" + IdTipoDocumento + ", Nombre=" + Nombre + ", Usuario=" + Usuario
+		return "TipoDocumento [IdTipoDocumento=" + idtipodocumento + ", Nombre=" + Nombre 
 				+ "]";
 	}
 
 	public int getIdTipoDocumento() {
-		return IdTipoDocumento;
+		return idtipodocumento;
 	}
 
 	public void setIdTipoDocumento(int idTipoDocumento) {
-		IdTipoDocumento = idTipoDocumento;
+		idtipodocumento = idTipoDocumento;
 	}
 
 	public String getNombre() {
@@ -57,15 +58,6 @@ public class TipoDocumento {
 	public void setNombre(String nombre) {
 		Nombre = nombre;
 	}
-
-	public List<Usuario> getUsuario() {
-		return Usuario;
-	}
-
-	public void setUsuario(List<Usuario> usuario) {
-		Usuario = usuario;
-	}
-	
 	
 	
 	

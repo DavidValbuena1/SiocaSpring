@@ -41,7 +41,7 @@ public class OrdenCompraController {
 	
 	@PutMapping(path= {"/editar/{id}"})
 	public OrdenCompra editarOrden(@PathVariable("id") int id,@RequestBody OrdenCompra oc) {
-		oc.setIdOrden(id);
+		oc.setIdorden(id);
 		return service.editarOrdenDeCompra(oc);
 	}
 	

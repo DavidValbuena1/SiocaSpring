@@ -1,52 +1,51 @@
 package com.david.ProyectoSioca.model;
 
+import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "venta")
-public class Venta {
+public class Venta implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int Id;
 
-	@Column(name = "ValorTotal")
+	@Column(name = "Valortotal")
 	private long Precio;
 
 	@Column(name = "Estado")
 	private String Estado;
 
-	@Column(name = "FechaVenta")
+	@Column(name = "fechaventa")
 	@Temporal(TemporalType.DATE)
 	private Date Fecha;
 
-	@OneToMany(cascade = CascadeType.REMOVE, mappedBy="IdVenta")
-	private List<DetalleVenta> DetalleVenta;
 
 	public Venta() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Venta(int id, long precio, String estado, Date fecha,
-			List<DetalleVenta> detalleVenta) {
+	public Venta(int id, long precio, String estado, Date fecha) {
 		super();
 		Id = id;
 		Precio = precio;
 		Estado = estado;
 		Fecha = fecha;
-		DetalleVenta = detalleVenta;
 	}
 
 	public int getId() {
@@ -79,14 +78,6 @@ public class Venta {
 
 	public void setFecha(Date fecha) {
 		Fecha = fecha;
-	}
-
-	public List<DetalleVenta> getDetalleVenta() {
-		return DetalleVenta;
-	}
-
-	public void setDetalleVenta(List<DetalleVenta> detalleVenta) {
-		DetalleVenta = detalleVenta;
 	}
 
 	@Override

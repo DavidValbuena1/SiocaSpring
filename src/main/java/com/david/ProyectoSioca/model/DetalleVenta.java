@@ -1,5 +1,7 @@
 package com.david.ProyectoSioca.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,32 +14,36 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="detalleventa")
-public class DetalleVenta {
+public class DetalleVenta implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int IdDetalle;
+	private int Iddetalle;
 	
 	@Column
 	private int Cantidad;
 	
 	@Column
-	private long SubTotal;
+	private long Subtotal;
 	
 	@ManyToOne
-	@JoinColumn(name="IdProducto")
+	@JoinColumn(name="Idproducto")
 	private Producto IdProducto;
 	
 	@ManyToOne(cascade = CascadeType.REMOVE)
-	@JoinColumn(name="IdVenta")
+	@JoinColumn(name="Idventa")
 	private Venta IdVenta;
 	
 
 	public DetalleVenta(int idDetalle, int cantidad, long subTotal, Producto idProducto, Venta idVenta) {
 		super();
-		IdDetalle = idDetalle;
+		Iddetalle = idDetalle;
 		Cantidad = cantidad;
-		SubTotal = subTotal;
+		Subtotal = subTotal;
 		IdProducto = idProducto;
 		IdVenta = idVenta;
 	}
@@ -48,11 +54,11 @@ public class DetalleVenta {
 	}
 
 	public int getIdDetalle() {
-		return IdDetalle;
+		return Iddetalle;
 	}
 
 	public void setIdDetalle(int idDetalle) {
-		IdDetalle = idDetalle;
+		Iddetalle = idDetalle;
 	}
 
 	public int getCantidad() {
@@ -64,11 +70,11 @@ public class DetalleVenta {
 	}
 
 	public long getSubTotal() {
-		return SubTotal;
+		return Subtotal;
 	}
 
 	public void setSubTotal(long subTotal) {
-		SubTotal = subTotal;
+		Subtotal = subTotal;
 	}
 
 	public Producto getIdProducto() {

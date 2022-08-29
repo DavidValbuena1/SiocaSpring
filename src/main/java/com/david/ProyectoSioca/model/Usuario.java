@@ -45,7 +45,7 @@ public class Usuario implements Serializable {
 	@Column(name="Direccion_usuario")
 	private String Direccion;
 
-	@Column(name="FechaNacimiento")
+	@Column(name="fechanacimiento")
 	@Temporal(TemporalType.DATE)
 	private Date Fecha;
 
@@ -57,11 +57,11 @@ public class Usuario implements Serializable {
 	
 	
 	@ManyToOne
-	@JoinColumn(name = "IdRol")
+	@JoinColumn(name = "Idrol")
 	private Rol Rol;
 
 	@ManyToOne
-	@JoinColumn(name = "TipoDocumento_IdTipoDocumento")
+	@JoinColumn(name = "Tipodocumento_Idtipodocumento")
 	private TipoDocumento TipoDocumento;
 
 	@Override

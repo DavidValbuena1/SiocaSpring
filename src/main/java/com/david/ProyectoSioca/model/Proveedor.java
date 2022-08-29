@@ -1,9 +1,7 @@
 package com.david.ProyectoSioca.model;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -49,9 +46,6 @@ public class Proveedor implements Serializable {
 	@JoinColumn(name="Categoria")
 	private Categoria Categoria;
 	
-	@OneToMany(mappedBy="proveedor", cascade= CascadeType.MERGE)
-	private List<Producto> Producto;
-	
 	@Column(name="Ciudad")
 	private String Ciudad;
 
@@ -64,7 +58,7 @@ public class Proveedor implements Serializable {
 
 	public Proveedor(int id_proveedor, String nombre, String nombreEmpresa, String direccion1, String direccion2,
 			String correo1, String correo2, String nit, Categoria categoria,
-			List<Producto> producto, String ciudad) {
+			 String ciudad) {
 		super();
 		Id_proveedor = id_proveedor;
 		Nombre = nombre;
@@ -75,7 +69,6 @@ public class Proveedor implements Serializable {
 		Correo2 = correo2;
 		Nit = nit;
 		Categoria = categoria;
-		Producto = producto;
 		Ciudad = ciudad;
 	}
 
@@ -87,17 +80,6 @@ public class Proveedor implements Serializable {
 				+ ", NombreEmpresa=" + NombreEmpresa + ", Direccion1=" + Direccion1 + ", Direccion2=" + Direccion2
 				+ ", Correo1=" + Correo1 + ", Correo2=" + Correo2 + ", Nit=" + Nit + ", Categoria=" + Categoria
 				+ ", Ciudad=" + Ciudad + "]";
-	}
-
-	
-	public List<Producto> getProducto() {
-		return Producto;
-	}
-
-
-
-	public void setProducto(List<Producto> producto) {
-		Producto = producto;
 	}
 
 
