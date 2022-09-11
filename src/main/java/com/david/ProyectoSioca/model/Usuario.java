@@ -28,7 +28,7 @@ public class Usuario implements Serializable {
 	private int id_usuario;
 
 	@Column
-	private String Num_Identificacion_usuario;
+	private String Num_identificacion_usuario;
 
 	@Column(name="Nombres_usuario")
 	private String Nombres;
@@ -61,12 +61,12 @@ public class Usuario implements Serializable {
 	private Rol Rol;
 
 	@ManyToOne
-	@JoinColumn(name = "Tipodocumento_Idtipodocumento")
+	@JoinColumn(name = "Tipodocumento_idtipodocumento")
 	private TipoDocumento TipoDocumento;
 
 	@Override
 	public String toString() {
-		return "Usuario [id_usuario=" + id_usuario + ", Num_Identificacion_usuario=" + Num_Identificacion_usuario
+		return "Usuario [id_usuario=" + id_usuario + ", Num_Identificacion_usuario=" + Num_identificacion_usuario
 				+ ", Nombres=" + Nombres + ", Apellidos=" + Apellidos + ", Correo=" + Correo + ", Telefono=" + Telefono
 				+ ", Direccion=" + Direccion + ", Fecha=" + Fecha + ", contraseña=" + contraseña + ", confirmar="
 				+ confirmar + ", Rol=" + Rol + ", TipoDocumento=" + TipoDocumento + "]";
@@ -77,7 +77,7 @@ public class Usuario implements Serializable {
 			Rol rol, TipoDocumento tipoDocumento) {
 		super();
 		this.id_usuario = id_usuario;
-		Num_Identificacion_usuario = num_Identificacion_usuario;
+		this.Num_identificacion_usuario = num_Identificacion_usuario;
 		Nombres = nombres;
 		Apellidos = apellidos;
 		Correo = correo;
@@ -104,11 +104,11 @@ public class Usuario implements Serializable {
 	}
 
 	public String getNum_Identificacion_usuario() {
-		return Num_Identificacion_usuario;
+		return Num_identificacion_usuario;
 	}
 
 	public void setNum_Identificacion_usuario(String num_Identificacion_usuario) {
-		Num_Identificacion_usuario = num_Identificacion_usuario;
+		this.Num_identificacion_usuario = num_Identificacion_usuario;
 	}
 
 	public String getNombres() {

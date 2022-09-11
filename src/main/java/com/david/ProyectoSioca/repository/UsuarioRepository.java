@@ -2,6 +2,7 @@ package com.david.ProyectoSioca.repository;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 
 import com.david.ProyectoSioca.model.Usuario;
@@ -11,4 +12,7 @@ public interface UsuarioRepository extends Repository<Usuario, Integer> {
 	public Usuario save(Usuario u);
 	public Usuario findById(int id);
 	public Usuario deleteById(int id);
+	
+	@Query("SELECT u FROM Usuario u WHERE u.Correo = ?1 AND u.contraseña= ?2")
+	public Usuario verificar(String correo, String contraseña);
 }

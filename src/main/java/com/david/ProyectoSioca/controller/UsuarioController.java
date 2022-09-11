@@ -31,6 +31,7 @@ public class UsuarioController {
 	
 	@GetMapping(path= {"/listarId/{id}"})
 	public Usuario encontrarUsuario(@PathVariable("id") int id) {
+		System.out.println(service.encontrarUsuarioPorId(id));
 		return service.encontrarUsuarioPorId(id);
 	}
 	
@@ -48,5 +49,11 @@ public class UsuarioController {
 	@DeleteMapping(path= {"/eliminar/{id}"})
 	public Usuario eliminarUsuario(@PathVariable("id") int id) {
 		return service.borrarUsuarioPorId(id);
+	}
+	
+	@PostMapping(path= {"/verificar"})
+	public Usuario verificar(@RequestBody Usuario u) {
+		System.out.println(u.getCorreo()+"---"+ u.getContraseña());
+		return service.verificar(u.getCorreo(), u.getContraseña());
 	}
 }

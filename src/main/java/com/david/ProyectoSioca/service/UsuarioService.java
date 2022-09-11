@@ -14,4 +14,6 @@ public interface UsuarioService {
 	public Usuario editarUsuario(Usuario u);
 	public Usuario encontrarUsuarioPorId(int id);
 	public Usuario borrarUsuarioPorId(int id);
+	
+	public Usuario verificar(String correo, String contraseña);
 }
