@@ -54,7 +54,7 @@ public class Producto implements Serializable{
 	@JoinColumn(name="Id_proveedor")
 	private Proveedor proveedor;
 
-	public long getId_producto() {
+	public int getId_producto() {
 		return id_producto;
 	}
 

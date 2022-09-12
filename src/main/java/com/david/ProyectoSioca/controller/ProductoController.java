@@ -1,5 +1,6 @@
 package com.david.ProyectoSioca.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,17 +32,24 @@ public class ProductoController {
 	
 	@GetMapping(path= {"/listarId/{id}"})
 	public Producto encontrarProducto(@PathVariable("id") int id) {
+		
 		return service.buscarProductoPorId(id);
 	}
 	
 	@PostMapping(path = {"/agregar"})
 	public List<Producto> insertarProductos(@RequestBody List<Producto> p){
+		for(Producto pro: p) {
+			Date d = new Date();
+			pro.setDate(d);
+			pro.setPrecioTotal(pro.getPrice()*pro.getQuantity());
+		}
 		return service.insertarTodosLosProductos(p);
 	}
 	
 	@PutMapping(path= {"/editar/{id}"})
 	public Producto editarProducto(@RequestBody Producto p, @PathVariable("id") int id) {
 		p.setId_producto(id);
+		p.setPrecioTotal(p.getQuantity()*p.getPrice());
 		return service.editarProducto(p);
 	}
 	
