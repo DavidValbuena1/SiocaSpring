@@ -70,7 +70,7 @@ public class OrdenCompraImp implements OrdenCompraService {
 			d.setOrdenCompra(repositorio.findById(idorden));
 			idproveedor = d.getOrdenCompra().getProveedor().getId_proveedor();
 		}
-		File file= ResourceUtils.getFile("classpath:ordencompra.jrxml");
+		File file= ResourceUtils.getFile("src//main//resources//ordencompra.jrxml");
 		JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
 		JRBeanCollectionDataSource dataSource= new JRBeanCollectionDataSource(doc);
 		Map<String,Object> map = new HashMap<>();
