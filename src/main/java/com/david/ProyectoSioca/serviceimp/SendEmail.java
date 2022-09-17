@@ -22,7 +22,7 @@ public class SendEmail {
 		try {
 			MimeMessageHelper mailMessage = new MimeMessageHelper(message,true);
 			
-			
+			System.out.println("Estas en el try del envio del correo");
 			File file = ResourceUtils.getFile(URLpdf);
 			mailMessage.setFrom("david310702@gmail.com");
 			mailMessage.setTo(to);
