@@ -36,6 +36,16 @@ public class DetalleOrdenCompra implements Serializable {
 	private String observaciones;
 	
 	private int descuento;
+	
+	private String nombreproducto;
+	
+	public String getNombreproducto() {
+		return nombreproducto;
+	}
+
+	public void setNombreproducto(String nombreproducto) {
+		this.nombreproducto = nombreproducto;
+	}
 
 	public int getId() {
 		return id;
@@ -101,8 +111,7 @@ public class DetalleOrdenCompra implements Serializable {
 	public String toString() {
 		return "DetalleOrdenCompra [id=" + id + ", cantidadproducto=" + cantidadproducto + ", ordenCompra="
 				+ ordenCompra + ", preciounidad=" + preciounidad + ", preciototal=" + preciototal + ", observaciones="
-				+ observaciones + ", descuento=" + descuento + "]";
+				+ observaciones + ", descuento=" + descuento + ", nombreproducto=" + nombreproducto + "]";
 	}
-	
 	
 }

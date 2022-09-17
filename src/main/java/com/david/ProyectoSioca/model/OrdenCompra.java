@@ -30,10 +30,20 @@ public class OrdenCompra implements Serializable {
 	private String observaciones;
 	
 	private byte estado;
+	
+	private int valortotal;
 
 	@ManyToOne
 	@JoinColumn(name = "idproveedor")
 	private Proveedor proveedor;
+	
+	public int getValortotal() {
+		return valortotal;
+	}
+
+	public void setValortotal(int valortotal) {
+		this.valortotal = valortotal;
+	}
 
 	public int getIdorden() {
 		return Idorden;
@@ -84,9 +94,23 @@ public class OrdenCompra implements Serializable {
 		return "OrdenCompra [Idorden=" + Idorden + ", Fecha=" + Fecha + ", observaciones=" + observaciones + ", estado="
 				+ estado + ", proveedor=" + proveedor + "]";
 	}
-	
-	
-	
-	
 
+	public OrdenCompra(int idorden, Date fecha, String observaciones, byte estado, int valortotal,
+			Proveedor proveedor) {
+		super();
+		Idorden = idorden;
+		Fecha = fecha;
+		this.observaciones = observaciones;
+		this.estado = estado;
+		this.valortotal = valortotal;
+		this.proveedor = proveedor;
+	}
+
+	public OrdenCompra() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	
 }

@@ -1,5 +1,6 @@
 package com.david.ProyectoSioca.controller;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.david.ProyectoSioca.model.DetalleOrdenCompra;
 import com.david.ProyectoSioca.model.OrdenCompra;
 import com.david.ProyectoSioca.service.OrdenCompraService;
+import com.david.ProyectoSioca.serviceimp.OrdenCompraImp;
+
+import net.sf.jasperreports.engine.JRException;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -23,6 +28,9 @@ public class OrdenCompraController {
 	
 	@Autowired(required=true)
 	private OrdenCompraService service;
+	
+	@Autowired(required=true)
+	private OrdenCompraImp serviceImp;
 	
 	@GetMapping(path= {"/listar"})
 	public List<OrdenCompra> listar(){
@@ -48,5 +56,10 @@ public class OrdenCompraController {
 	@DeleteMapping(path= {"/eliminar/{id}"})
 	public OrdenCompra eliminarOrden(@PathVariable("id") int id) {
 		return service.eliminarOrdenPorId(id);
+	}
+	
+	@PostMapping(path= {"/generarReporte"})
+	public String generarReporte(@RequestBody List<DetalleOrdenCompra> doc) throws FileNotFoundException, JRException {
+		return serviceImp.exportarReporte(doc);
 	}
 }
