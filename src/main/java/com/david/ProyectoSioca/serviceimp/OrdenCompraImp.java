@@ -76,7 +76,7 @@ public class OrdenCompraImp implements OrdenCompraService {
 		Map<String,Object> map = new HashMap<>();
 		map.put("createdBy", "David Valbuena");
 		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map,dataSource);
-		String URLpdf="src//main//resources//OrdenesCompraPDF//ordenCompra"+idorden+".pdf";
+		String URLpdf="src//main//resources//ordenCompra"+idorden+".pdf";
 		JasperExportManager.exportReportToPdfFile(jasperPrint,URLpdf);
 		EnviarEmail(URLpdf,idproveedor);
 		return "Bien socio, lo genero";
