@@ -27,15 +27,9 @@ public class OrdenCompra implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date Fecha;
 
-	private int cantidadproductos;
-
-	private long preciounidad;
-
-	private long preciototal;
-
 	private String observaciones;
 	
-	private boolean estado;
+	private byte estado;
 
 	@ManyToOne
 	@JoinColumn(name = "idproveedor")
@@ -45,8 +39,8 @@ public class OrdenCompra implements Serializable {
 		return Idorden;
 	}
 
-	public void setIdorden(int idOrden) {
-		this.Idorden = idOrden;
+	public void setIdorden(int idorden) {
+		Idorden = idorden;
 	}
 
 	public Date getFecha() {
@@ -57,30 +51,6 @@ public class OrdenCompra implements Serializable {
 		Fecha = fecha;
 	}
 
-	public int getCantidadproductos() {
-		return cantidadproductos;
-	}
-
-	public void setCantidadproductos(int cantidadproductos) {
-		this.cantidadproductos = cantidadproductos;
-	}
-
-	public long getPreciounidad() {
-		return preciounidad;
-	}
-
-	public void setPreciounidad(long preciounidad) {
-		this.preciounidad = preciounidad;
-	}
-
-	public long getPreciototal() {
-		return preciototal;
-	}
-
-	public void setPreciototal(long preciototal) {
-		this.preciototal = preciototal;
-	}
-
 	public String getObservaciones() {
 		return observaciones;
 	}
@@ -89,11 +59,11 @@ public class OrdenCompra implements Serializable {
 		this.observaciones = observaciones;
 	}
 
-	public boolean isEstado() {
+	public byte getEstado() {
 		return estado;
 	}
 
-	public void setEstado(boolean estado) {
+	public void setEstado(byte estado) {
 		this.estado = estado;
 	}
 
@@ -105,31 +75,17 @@ public class OrdenCompra implements Serializable {
 		this.proveedor = proveedor;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Override
 	public String toString() {
-		return "OrdenCompra [IdOrden=" + Idorden + ", Fecha=" + Fecha + ", cantidadproductos=" + cantidadproductos
-				+ ", preciounidad=" + preciounidad + ", preciototal=" + preciototal + ", observaciones=" + observaciones
-				+ ", estado=" + estado + ", proveedor=" + proveedor + "]";
+		return "OrdenCompra [Idorden=" + Idorden + ", Fecha=" + Fecha + ", observaciones=" + observaciones + ", estado="
+				+ estado + ", proveedor=" + proveedor + "]";
 	}
-
-	public OrdenCompra(int idOrden, Date fecha, int cantidadproductos, long preciounidad, long preciototal,
-			String observaciones, boolean estado, Proveedor proveedor) {
-		super();
-		Idorden = idOrden;
-		Fecha = fecha;
-		this.cantidadproductos = cantidadproductos;
-		this.preciounidad = preciounidad;
-		this.preciototal = preciototal;
-		this.observaciones = observaciones;
-		this.estado = estado;
-		this.proveedor = proveedor;
-	}
-
-	public OrdenCompra() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
+	
+	
 	
 	
 
