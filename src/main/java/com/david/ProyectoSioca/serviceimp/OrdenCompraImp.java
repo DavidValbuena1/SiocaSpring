@@ -43,8 +43,8 @@ public class OrdenCompraImp implements OrdenCompraService {
 	}
 
 	@Override
-	public List<OrdenCompra> insertarOrdenesDeCompra(List<OrdenCompra> lista) {
-		return repositorio.saveAll(lista);
+	public OrdenCompra insertarOrdenesDeCompra(OrdenCompra lista) {
+		return repositorio.save(lista);
 	}
 
 	@Override

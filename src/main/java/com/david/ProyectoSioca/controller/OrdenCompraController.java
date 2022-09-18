@@ -48,7 +48,7 @@ public class OrdenCompraController {
 	}
 	
 	@PostMapping(path= {"/agregar"})
-	public List<OrdenCompra> insertarOrden(@RequestBody List<OrdenCompra> oc) {
+	public OrdenCompra insertarOrden(@RequestBody OrdenCompra oc) {
 		return service.insertarOrdenesDeCompra(oc);
 	}
 	
