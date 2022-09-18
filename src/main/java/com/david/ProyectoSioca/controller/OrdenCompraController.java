@@ -50,6 +50,7 @@ public class OrdenCompraController {
 	
 	@PostMapping(path= {"/agregar"})
 	public OrdenCompra insertarOrden(@RequestBody OrdenCompra oc) {
+		System.out.println(oc);
 		oc.setFecha(new Date());
 		return service.insertarOrdenesDeCompra(oc);
 	}
@@ -66,7 +67,13 @@ public class OrdenCompraController {
 	}
 	
 	@PostMapping(path= {"/generarReporte"})
-	public String generarReporte(@RequestBody List<DetalleOrdenCompra> doc) throws FileNotFoundException, JRException {
-		return serviceImp.exportarReporte(doc);
+	public String generarReporte(@RequestBody List<DetalleOrdenCompra> doc) {
+		String frase="";
+		try {
+			frase= serviceImp.exportarReporte(doc);
+		} catch (FileNotFoundException | JRException e) {
+			e.printStackTrace();
+		}
+		return frase;
 	}
 }
