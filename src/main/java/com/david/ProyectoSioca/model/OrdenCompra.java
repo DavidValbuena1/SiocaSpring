@@ -27,7 +27,6 @@ public class OrdenCompra implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date Fecha;
 
-	private String observaciones;
 	
 	private byte estado;
 	
@@ -61,13 +60,7 @@ public class OrdenCompra implements Serializable {
 		Fecha = fecha;
 	}
 
-	public String getObservaciones() {
-		return observaciones;
-	}
 
-	public void setObservaciones(String observaciones) {
-		this.observaciones = observaciones;
-	}
 
 	public byte getEstado() {
 		return estado;
@@ -91,16 +84,15 @@ public class OrdenCompra implements Serializable {
 
 	@Override
 	public String toString() {
-		return "OrdenCompra [Idorden=" + Idorden + ", Fecha=" + Fecha + ", observaciones=" + observaciones + ", estado="
+		return "OrdenCompra [Idorden=" + Idorden + ", Fecha=" + Fecha + ", estado="
 				+ estado + ", proveedor=" + proveedor + "]";
 	}
 
-	public OrdenCompra(int idorden, Date fecha, String observaciones, byte estado, int valortotal,
+	public OrdenCompra(int idorden, Date fecha, byte estado, int valortotal,
 			Proveedor proveedor) {
 		super();
 		Idorden = idorden;
 		Fecha = fecha;
-		this.observaciones = observaciones;
 		this.estado = estado;
 		this.valortotal = valortotal;
 		this.proveedor = proveedor;
