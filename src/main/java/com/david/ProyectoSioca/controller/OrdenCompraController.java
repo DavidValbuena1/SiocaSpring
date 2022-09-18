@@ -1,6 +1,7 @@
 package com.david.ProyectoSioca.controller;
 
 import java.io.FileNotFoundException;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,7 @@ public class OrdenCompraController {
 	
 	@PostMapping(path= {"/agregar"})
 	public OrdenCompra insertarOrden(@RequestBody OrdenCompra oc) {
+		oc.setFecha(new Date());
 		return service.insertarOrdenesDeCompra(oc);
 	}
 	
