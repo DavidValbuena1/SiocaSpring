@@ -64,7 +64,7 @@
 				<text><![CDATA[Proveedor]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="270" y="-10" width="305" height="50" uuid="08ecc8f9-65b4-46f1-bfb3-ff5c6a5c209a"/>
+				<reportElement x="210" y="-10" width="344" height="50" uuid="08ecc8f9-65b4-46f1-bfb3-ff5c6a5c209a"/>
 				<textElement>
 					<font fontName="SansSerif" size="34" isBold="true"/>
 				</textElement>
@@ -92,22 +92,22 @@
 				<textFieldExpression><![CDATA["NIT "+ $F{ordenCompra.proveedor.nit}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="300" y="40" width="253" height="30" uuid="46dd2648-e607-4433-98f0-9b6a9e8ee7f7"/>
-				<textElement textAlignment="Right">
+				<reportElement x="280" y="40" width="253" height="30" uuid="46dd2648-e607-4433-98f0-9b6a9e8ee7f7"/>
+				<textElement textAlignment="Left">
 					<font size="14"/>
 				</textElement>
 				<text><![CDATA[Dirección: Cra. 77c #68a16sur, Bogotá]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="400" y="70" width="154" height="30" uuid="86d6a9ec-f0c4-4889-acbf-b2812e54b18d"/>
-				<textElement textAlignment="Right">
+				<reportElement x="280" y="70" width="154" height="30" uuid="86d6a9ec-f0c4-4889-acbf-b2812e54b18d"/>
+				<textElement textAlignment="Left">
 					<font size="14"/>
 				</textElement>
 				<text><![CDATA[Telefono: 301 3803116]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="390" y="100" width="163" height="30" uuid="1694771d-d208-4e31-8da6-807a083bf3be"/>
-				<textElement textAlignment="Right">
+				<reportElement x="280" y="100" width="163" height="30" uuid="1694771d-d208-4e31-8da6-807a083bf3be"/>
+				<textElement textAlignment="Left">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
@@ -133,7 +133,7 @@
 					<rightPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="Dubai Medium" size="12" isBold="true"/>
+					<font fontName="SansSerif" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Cantidad ]]></text>
 			</staticText>
@@ -147,7 +147,7 @@
 					<rightPen lineWidth="1.5" lineStyle="Solid" lineColor="#030303"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="Dubai Medium" size="12" isBold="true"/>
+					<font fontName="SansSerif" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nombre del producto]]></text>
 			</staticText>
@@ -161,7 +161,7 @@
 					<rightPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="Dubai Medium" size="12" isBold="true"/>
+					<font fontName="SansSerif" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Precio unidad]]></text>
 			</staticText>
@@ -175,7 +175,7 @@
 					<rightPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="Dubai Medium" size="12" isBold="true"/>
+					<font fontName="SansSerif" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Descuento]]></text>
 			</staticText>
@@ -189,7 +189,7 @@
 					<rightPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="Dubai Medium" size="12" isBold="true"/>
+					<font fontName="SansSerif" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[PrecioTotal]]></text>
 			</staticText>
@@ -205,7 +205,7 @@
 					<rightPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="Dubai Medium" size="12" isBold="true"/>
+					<font fontName="SansSerif" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Observaciones]]></text>
 			</staticText>
@@ -223,7 +223,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombreproducto}]]></textFieldExpression>
 			</textField>
@@ -237,7 +237,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cantidadproducto}]]></textFieldExpression>
 			</textField>
@@ -251,7 +251,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{preciounidad}]]></textFieldExpression>
 			</textField>
@@ -265,7 +265,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{descuento}]]></textFieldExpression>
 			</textField>
@@ -279,7 +279,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{preciototal}]]></textFieldExpression>
 			</textField>
@@ -296,7 +296,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font isBold="true"/>
+					<font fontName="SansSerif" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{observaciones}]]></textFieldExpression>
 			</textField>

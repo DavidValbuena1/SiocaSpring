@@ -13,4 +13,6 @@ public interface OrdenCompraService {
 	public OrdenCompra editarOrdenDeCompra(OrdenCompra oc);
 	public OrdenCompra buscarOrdenPorId(int id);
 	public OrdenCompra eliminarOrdenPorId(int id);
+	
+	public int obtenerIdMaximo();
 }

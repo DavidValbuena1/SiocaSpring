@@ -42,6 +42,11 @@ public class OrdenCompraController {
 		return service.buscarOrdenPorId(id);
 	}
 	
+	@GetMapping(path= {"/idMaximo"})
+	public int obtenerIdMaximo() {
+		return service.obtenerIdMaximo();
+	}
+	
 	@PostMapping(path= {"/agregar"})
 	public List<OrdenCompra> insertarOrden(@RequestBody List<OrdenCompra> oc) {
 		return service.insertarOrdenesDeCompra(oc);

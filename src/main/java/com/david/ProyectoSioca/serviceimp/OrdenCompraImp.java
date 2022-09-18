@@ -91,4 +91,9 @@ public class OrdenCompraImp implements OrdenCompraService {
 		String body = "Estimado proveedor" + p.getNombre() + " enviamos Orden de compra para abastecimiento de dichos productos";
 		sendEmail.sendMail(to, subject, body, URLpdf);
 	}
+
+	@Override
+	public int obtenerIdMaximo() {
+		return repositorio.obtenerIdMaximo();
+	}
 }
