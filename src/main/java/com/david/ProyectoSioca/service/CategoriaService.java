@@ -13,4 +13,6 @@ public interface CategoriaService {
 	public Categoria editarCategoria(Categoria c);
 	public Categoria eliminarCategoriaPorId(int id);
 	public Categoria encontrarCategoriaPorId(int id);
+	
+	public Categoria buscarPorNombre(String nombre);
 }

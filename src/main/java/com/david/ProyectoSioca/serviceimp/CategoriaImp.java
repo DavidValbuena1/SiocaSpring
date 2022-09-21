@@ -40,4 +40,9 @@ public class CategoriaImp implements CategoriaService {
 		return repositorio.findById(id);
 	}
 
+	@Override
+	public Categoria buscarPorNombre(String nombre) {
+		return repositorio.buscarPorNombre(nombre);
+	}
+
 }

@@ -34,6 +34,11 @@ public class CategoriaController {
 		return service.encontrarCategoriaPorId(id);
 	}
 	
+	@GetMapping(path= {"/listarPorNombre/{nombre}"})
+	public Categoria buscarPorNombre(@PathVariable("nombre") String nombre) {
+		return service.buscarPorNombre(nombre);
+	}
+	
 	@PostMapping(path= {"/agregar"})
 	public Categoria insertarCategoria(@RequestBody Categoria c) {
 		return service.insertarCategoria(c);

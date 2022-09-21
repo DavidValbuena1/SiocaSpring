@@ -88,7 +88,7 @@ public class OrdenCompraImp implements OrdenCompraService {
 		p = repositorioProveedor.findById(id);
 		String to = p.getCorreo1();
 		String subject = "Reabastecimiento - Orden de compra";
-		String body = "Estimado proveedor" + p.getNombre() + " enviamos Orden de compra para abastecimiento de dichos productos";
+		String body = "Estimado proveedor " + p.getNombre() + " enviamos Orden de compra para abastecimiento de dichos productos";
 		sendEmail.sendMail(to, subject, body, URLpdf);
 	}
 
