@@ -30,6 +30,9 @@ public class DetalleVenta implements Serializable {
 	@Column
 	private long Subtotal;
 	
+	@Column
+	private int descuento;
+	
 	@ManyToOne
 	@JoinColumn(name="Idproducto")
 	private Producto IdProducto;
@@ -37,28 +40,13 @@ public class DetalleVenta implements Serializable {
 	@ManyToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name="Idventa")
 	private Venta IdVenta;
-	
 
-	public DetalleVenta(int idDetalle, int cantidad, long subTotal, Producto idProducto, Venta idVenta) {
-		super();
-		Iddetalle = idDetalle;
-		Cantidad = cantidad;
-		Subtotal = subTotal;
-		IdProducto = idProducto;
-		IdVenta = idVenta;
-	}
-
-	public DetalleVenta() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public int getIdDetalle() {
+	public int getIddetalle() {
 		return Iddetalle;
 	}
 
-	public void setIdDetalle(int idDetalle) {
-		Iddetalle = idDetalle;
+	public void setIddetalle(int iddetalle) {
+		Iddetalle = iddetalle;
 	}
 
 	public int getCantidad() {
@@ -69,12 +57,20 @@ public class DetalleVenta implements Serializable {
 		Cantidad = cantidad;
 	}
 
-	public long getSubTotal() {
+	public long getSubtotal() {
 		return Subtotal;
 	}
 
-	public void setSubTotal(long subTotal) {
-		Subtotal = subTotal;
+	public void setSubtotal(long subtotal) {
+		Subtotal = subtotal;
+	}
+
+	public int getDescuento() {
+		return descuento;
+	}
+
+	public void setDescuento(int descuento) {
+		this.descuento = descuento;
 	}
 
 	public Producto getIdProducto() {
@@ -92,6 +88,17 @@ public class DetalleVenta implements Serializable {
 	public void setIdVenta(Venta idVenta) {
 		IdVenta = idVenta;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	@Override
+	public String toString() {
+		return "DetalleVenta [Iddetalle=" + Iddetalle + ", Cantidad=" + Cantidad + ", Subtotal=" + Subtotal
+				+ ", descuento=" + descuento + ", IdProducto=" + IdProducto + ", IdVenta=" + IdVenta + "]";
+	}
+	
 
 	
 	
