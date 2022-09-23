@@ -2,7 +2,6 @@ package com.david.ProyectoSioca.model;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,12 +33,12 @@ public class DetalleVenta implements Serializable {
 	private int descuento;
 	
 	@ManyToOne
-	@JoinColumn(name="Idproducto")
-	private Producto IdProducto;
+	@JoinColumn(name="idproducto")
+	private Producto idproducto;
 	
-	@ManyToOne(cascade = CascadeType.REMOVE)
-	@JoinColumn(name="Idventa")
-	private Venta IdVenta;
+	@ManyToOne
+	@JoinColumn(name="idventa")
+	private Venta idventa;
 
 	public int getIddetalle() {
 		return Iddetalle;
@@ -73,20 +72,20 @@ public class DetalleVenta implements Serializable {
 		this.descuento = descuento;
 	}
 
-	public Producto getIdProducto() {
-		return IdProducto;
+	public Producto getIdproducto() {
+		return idproducto;
 	}
 
-	public void setIdProducto(Producto idProducto) {
-		IdProducto = idProducto;
+	public void setIdproducto(Producto idproducto) {
+		this.idproducto = idproducto;
 	}
 
-	public Venta getIdVenta() {
-		return IdVenta;
+	public Venta getIdventa() {
+		return idventa;
 	}
 
-	public void setIdVenta(Venta idVenta) {
-		IdVenta = idVenta;
+	public void setIdventa(Venta idventa) {
+		this.idventa = idventa;
 	}
 
 	public static long getSerialversionuid() {
@@ -96,12 +95,9 @@ public class DetalleVenta implements Serializable {
 	@Override
 	public String toString() {
 		return "DetalleVenta [Iddetalle=" + Iddetalle + ", Cantidad=" + Cantidad + ", Subtotal=" + Subtotal
-				+ ", descuento=" + descuento + ", IdProducto=" + IdProducto + ", IdVenta=" + IdVenta + "]";
+				+ ", descuento=" + descuento + ", idproducto=" + idproducto + ", idventa=" + idventa + "]";
 	}
-	
 
-	
-	
 	
 	
 }

@@ -14,6 +14,6 @@ public interface DetalleVentaRepository extends Repository<DetalleVenta, Integer
 	public List<DetalleVenta> saveAll(Iterable<DetalleVenta> df);
 	public DetalleVenta deleteById(int id);
 	
-	@Query(value="SELECT dv FROM DetalleVenta dv WHERE dv.IdVenta.Id = ?1")
+	@Query(value="SELECT dv FROM DetalleVenta dv WHERE dv.idventa.Id = ?1")
 	public List<DetalleVenta> encontrarDetallesPorVenta(int Id);
 }

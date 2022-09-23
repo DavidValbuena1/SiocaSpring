@@ -41,6 +41,7 @@ public class DetalleVentaController {
 	
 	@PostMapping(path= {"/agregar"})
 	public List<DetalleVenta> insertarDetalles(@RequestBody List<DetalleVenta> dv){
+		System.out.println(dv);
 		return service.insertarDetalles(dv);
 	}
 	

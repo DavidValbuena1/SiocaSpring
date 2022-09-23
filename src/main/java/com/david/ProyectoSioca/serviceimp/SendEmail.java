@@ -29,7 +29,6 @@ public class SendEmail {
 			mailMessage.setSubject(subject);
 			mailMessage.setText(body);
 			mailMessage.addAttachment("Orden de compra", file);
-			System.out.println(mailMessage);
 			sender.send(message);
 		} catch (Exception e) {
 			System.out.println(e);

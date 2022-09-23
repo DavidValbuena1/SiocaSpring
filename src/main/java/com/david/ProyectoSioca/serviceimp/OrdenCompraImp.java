@@ -37,6 +37,7 @@ public class OrdenCompraImp implements OrdenCompraService {
 	@Autowired(required=true)
 	private ProveedorRepository repositorioProveedor;
 	
+	
 	@Override
 	public List<OrdenCompra> encontrarOrdenesDeCompra() {
 		return repositorio.findAll();
@@ -96,4 +97,5 @@ public class OrdenCompraImp implements OrdenCompraService {
 	public int obtenerIdMaximo() {
 		return repositorio.obtenerIdMaximo();
 	}
+	
 }
