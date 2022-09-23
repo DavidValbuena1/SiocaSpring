@@ -45,7 +45,7 @@ public class DetalleVenta implements Serializable {
 		return Iddetalle;
 	}
 
-	public void setIddetalle(int iddetalle) {
+	public void setIdDetalle(int iddetalle) {
 		Iddetalle = iddetalle;
 	}
 
