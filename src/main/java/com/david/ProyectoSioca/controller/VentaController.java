@@ -1,5 +1,6 @@
 package com.david.ProyectoSioca.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,7 @@ public class VentaController {
 	
 	@PostMapping(path= {"/agregar"})
 	public Venta insertarVenta(@RequestBody Venta v) {
+		v.setFecha(new Date());
 		return service.insertarVenta(v);
 	}
 	
