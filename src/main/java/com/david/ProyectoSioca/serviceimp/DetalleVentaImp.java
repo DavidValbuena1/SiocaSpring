@@ -60,6 +60,7 @@ public class DetalleVentaImp implements DetalleVentaService {
 		Producto producto = new Producto();
 		Venta venta = new Venta();
 		DetalleVenta dv2 = new DetalleVenta();
+		dv2 = repositorio.findById(dv.getIddetalle());
 		producto = repositorioProducto.findById(dv.getIdproducto().getId_producto());
 		if(dv2.getCantidad()>dv.getCantidad()) {
 			diferencias=dv2.getCantidad()-dv.getCantidad();
