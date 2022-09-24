@@ -35,6 +35,14 @@ public class DetalleVenta implements Serializable {
 	@Column
 	private int preciounidad;
 	
+	public int getPreciounidad() {
+		return preciounidad;
+	}
+
+	public void setPreciounidad(int preciounidad) {
+		this.preciounidad = preciounidad;
+	}
+
 	@ManyToOne
 	@JoinColumn(name="idproducto")
 	private Producto idproducto;
@@ -98,9 +106,11 @@ public class DetalleVenta implements Serializable {
 	@Override
 	public String toString() {
 		return "DetalleVenta [Iddetalle=" + Iddetalle + ", Cantidad=" + Cantidad + ", Subtotal=" + Subtotal
-				+ ", descuento=" + descuento + ", idproducto=" + idproducto + ", idventa=" + idventa + "]";
+				+ ", descuento=" + descuento + ", preciounidad=" + preciounidad + ", idproducto=" + idproducto
+				+ ", idventa=" + idventa + "]";
 	}
-
+	
+	
 	
 	
 }
