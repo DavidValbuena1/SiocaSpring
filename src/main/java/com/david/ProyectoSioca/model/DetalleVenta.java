@@ -32,6 +32,9 @@ public class DetalleVenta implements Serializable {
 	@Column
 	private int descuento;
 	
+	@Column
+	private int preciounidad;
+	
 	@ManyToOne
 	@JoinColumn(name="idproducto")
 	private Producto idproducto;
