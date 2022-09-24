@@ -71,7 +71,7 @@ public class DetalleVentaImp implements DetalleVentaService {
 		}	
 		dv2 = repositorio.save(dv);
 		List<DetalleVenta> lista = new ArrayList<>();
-		lista = repositorio.findAll();
+		lista = repositorio.encontrarDetallesPorVenta(dv.getIdventa().getId());
 		for (DetalleVenta dv3 : lista) {
 			sumatotal = sumatotal + dv3.getSubtotal();
 		}
