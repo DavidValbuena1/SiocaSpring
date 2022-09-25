@@ -42,13 +42,13 @@ public class Proveedor implements Serializable {
 	@Column(name="Nit")
 	private String Nit;
 	
+	@Column(name="Ciudad")
+	private String Ciudad;
+
 	@ManyToOne
 	@JoinColumn(name="Categoria")
 	private Categoria Categoria;
 	
-	@Column(name="Ciudad")
-	private String Ciudad;
-
 	public Proveedor() {
 		super();
 		// TODO Auto-generated constructor stub

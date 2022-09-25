@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="proveedor" printOrder="Horizontal" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f0a89175-7858-40ae-b7d8-cf5af5d5c6e4">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="id_proveedor" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="nombreEmpresa" class="java.lang.String"/>
+	<field name="direccion1" class="java.lang.String"/>
+	<field name="direccion2" class="java.lang.String"/>
+	<field name="correo1" class="java.lang.String"/>
+	<field name="correo2" class="java.lang.String"/>
+	<field name="nit" class="java.lang.String"/>
+	<field name="ciudad" class="java.lang.String"/>
+	<field name="categoria.nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="-5" y="0" width="24" height="30" uuid="134408ff-53ee-4d24-b6b4-e605271acd1a"/>
+				<text><![CDATA[Static Text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="289" y="0" width="80" height="30" uuid="c9f72879-e3e6-4cf3-b53e-b5827aaef6de"/>
+				<text><![CDATA[Static Text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="0" width="78" height="30" uuid="f942209c-98e0-41b1-b96e-fe2ab52a664f"/>
+				<text><![CDATA[Static Text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="0" width="80" height="30" uuid="197f119a-2dcc-48c3-be19-2fb5dcbbf483"/>
+				<text><![CDATA[Static Text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="2" width="100" height="30" uuid="a8cbccbd-a937-458a-b9b7-55dd8a66e32e"/>
+				<text><![CDATA[Static Text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="0" width="90" height="30" uuid="a383c609-d167-4f82-ba92-b4ebd0ca0f0f"/>
+				<text><![CDATA[Static Text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="530" y="0" width="80" height="30" uuid="c5eca1e8-c479-49f5-8b01-276e130ec68c"/>
+				<text><![CDATA[Static Text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="610" y="0" width="100" height="30" uuid="020ef3c0-68b1-4988-a679-27397dc15711"/>
+				<text><![CDATA[Static Text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="710" y="2" width="92" height="30" uuid="3555535d-25a6-409d-afff-9cb36fc87214"/>
+				<text><![CDATA[Static Text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="0" width="80" height="30" uuid="caf394da-ff4f-46a1-a51e-ac8a576bc070"/>
+				<text><![CDATA[Static Text]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="-5" y="0" width="24" height="30" uuid="dbc472d3-fbd2-4ef9-9d6c-081ab4d27df7"/>
+				<textFieldExpression><![CDATA[$F{id_proveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="289" y="0" width="80" height="40" uuid="ee5cc628-0368-43eb-9802-906805d7e260"/>
+				<textFieldExpression><![CDATA[$F{direccion1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="0" width="100" height="30" uuid="fa43535a-33ab-4a6e-b078-690c4710c67f"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="0" width="90" height="30" uuid="3c0be792-55a1-46dc-8dd0-81f4dd31574e"/>
+				<textFieldExpression><![CDATA[$F{nombreEmpresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="0" width="78" height="30" uuid="cbec640f-36ba-4480-9b97-23f5f1a94449"/>
+				<textFieldExpression><![CDATA[$F{nit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="530" y="0" width="80" height="40" uuid="ecb52eb7-1a3f-4948-b7a6-bfc0566e0a81"/>
+				<textFieldExpression><![CDATA[$F{correo1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="369" y="0" width="80" height="40" uuid="1d5f2a0d-9bce-49ae-a84a-f4226331a8b0"/>
+				<textFieldExpression><![CDATA[$F{direccion2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="610" y="0" width="100" height="40" uuid="b11e4e22-cbc5-4593-b97a-0774680e3dd5"/>
+				<textFieldExpression><![CDATA[$F{correo2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="710" y="0" width="92" height="40" uuid="f2c39605-7707-424c-9bff-d3db1653c727"/>
+				<textFieldExpression><![CDATA[$F{categoria.nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="80" height="40" uuid="22cfaacc-fbbe-4f25-b96d-d2cc60677864"/>
+				<textFieldExpression><![CDATA[$F{ciudad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>
