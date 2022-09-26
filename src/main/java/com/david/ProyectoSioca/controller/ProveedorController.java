@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.david.ProyectoSioca.model.Proveedor;
-import com.david.ProyectoSioca.model.ReporteProveedores;
+import com.david.ProyectoSioca.model.Reportes;
 import com.david.ProyectoSioca.service.ProveedorService;
 
 import net.sf.jasperreports.engine.JRException;
@@ -63,7 +63,7 @@ public class ProveedorController {
 	
 	@GetMapping(path= {"/descargarReporte"})
 	public ResponseEntity<Resource> descargar(@RequestParam Map<String, Object> params) throws IOException, JRException{
-		ReporteProveedores dto= service.obtenerReporteProveedores(params);
+		Reportes dto= service.obtenerReporteProveedores(params);
 		
 		InputStreamResource streamResource = new InputStreamResource(dto.getStream());
 		MediaType mediatype = MediaType.APPLICATION_PDF;

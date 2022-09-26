@@ -1,10 +1,15 @@
 package com.david.ProyectoSioca.service;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import com.david.ProyectoSioca.model.Reportes;
 import com.david.ProyectoSioca.model.Venta;
+
+import net.sf.jasperreports.engine.JRException;
 
 @Service
 public interface VentaService {
@@ -16,4 +21,5 @@ public interface VentaService {
 	public Venta eliminarVenta(int id);
 	
 	public int MaxId();
+	Reportes obtenerReporteProveedores(Map<String, Object> params) throws IOException, JRException;
 }

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
 import com.david.ProyectoSioca.model.Proveedor;
-import com.david.ProyectoSioca.model.ReporteProveedores;
+import com.david.ProyectoSioca.model.Reportes;
 import com.david.ProyectoSioca.repository.ProveedorRepository;
 import com.david.ProyectoSioca.service.ProveedorService;
 
@@ -74,8 +74,8 @@ public class ProveedorImp implements ProveedorService{
 	}
 
 	@Override
-	public ReporteProveedores obtenerReporteProveedores(Map<String, Object> params) throws IOException, JRException {
-		ReporteProveedores dto = new ReporteProveedores();
+	public Reportes obtenerReporteProveedores(Map<String, Object> params) throws IOException, JRException {
+		Reportes dto = new Reportes();
 		dto.setFileName("Proveedor.pdf");
 		ByteArrayOutputStream stream = export(params);
 		byte[] bs = stream.toByteArray();

@@ -7,7 +7,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.david.ProyectoSioca.model.Proveedor;
-import com.david.ProyectoSioca.model.ReporteProveedores;
+import com.david.ProyectoSioca.model.Reportes;
 
 import net.sf.jasperreports.engine.JRException;
 
@@ -19,5 +19,5 @@ public interface ProveedorService {
 	public Proveedor encontrarProveedorPorId(int id);
 	public Proveedor eliminarProveedorPorId(int id);
 	
-	public ReporteProveedores obtenerReporteProveedores(Map<String, Object> params) throws IOException, JRException;
+	public Reportes obtenerReporteProveedores(Map<String, Object> params) throws IOException, JRException;
 }
