@@ -39,6 +39,7 @@ public class DetalleVentaImp implements DetalleVentaService {
 		for (DetalleVenta dv : lista) {
 			producto = repositorioProducto.findById(dv.getIdproducto().getId_producto());
 			producto.setQuantity(producto.getQuantity() - dv.getCantidad());
+			producto.setPrecioTotal(producto.getQuantity() * producto.getPrice());
 			repositorioProducto.save(producto);
 			sumatotal = sumatotal + dv.getSubtotal();
 			venta = repositorioVenta.findById(dv.getIdventa().getId());
@@ -65,9 +66,11 @@ public class DetalleVentaImp implements DetalleVentaService {
 		if(dv2.getCantidad()>dv.getCantidad()) {
 			diferencias=dv2.getCantidad()-dv.getCantidad();
 			producto.setQuantity(producto.getQuantity() + diferencias);
+			producto.setPrecioTotal(producto.getQuantity() * producto.getPrice());
 		}else if(dv2.getCantidad()<dv.getCantidad()) {
 			diferencias=dv.getCantidad()-dv2.getCantidad();
 			producto.setQuantity(producto.getQuantity() - diferencias);
+			producto.setPrecioTotal(producto.getQuantity() * producto.getPrice());
 		}	
 		dv2 = repositorio.save(dv);
 		List<DetalleVenta> lista = new ArrayList<>();
