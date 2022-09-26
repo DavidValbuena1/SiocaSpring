@@ -1,7 +1,11 @@
 package com.david.ProyectoSioca.serviceimp;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +17,7 @@ import org.springframework.util.ResourceUtils;
 import com.david.ProyectoSioca.model.DetalleOrdenCompra;
 import com.david.ProyectoSioca.model.OrdenCompra;
 import com.david.ProyectoSioca.model.Proveedor;
+import com.david.ProyectoSioca.model.Reportes;
 import com.david.ProyectoSioca.repository.OrdenCompraRepository;
 import com.david.ProyectoSioca.repository.ProveedorRepository;
 import com.david.ProyectoSioca.service.OrdenCompraService;
@@ -96,6 +101,31 @@ public class OrdenCompraImp implements OrdenCompraService {
 	@Override
 	public int obtenerIdMaximo() {
 		return repositorio.obtenerIdMaximo();
+	}
+	
+	public ByteArrayOutputStream export(Map<String,Object> params) throws JRException,IOException{
+		List<OrdenCompra> doc = new ArrayList<>();
+		doc = repositorio.findAll();
+		ByteArrayOutputStream stream = new ByteArrayOutputStream();
+		File file= ResourceUtils.getFile("src//main//resources//ordenes.jrxml");
+		JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+		JRBeanCollectionDataSource dataSource= new JRBeanCollectionDataSource(doc);
+		Map<String,Object> map = new HashMap<>();
+		map.put("createdBy", "David Valbuena");
+		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map,dataSource);
+		JasperExportManager.exportReportToPdfStream(jasperPrint, stream);
+		return stream;
+	}
+
+	@Override
+	public Reportes obtenerReporteProveedores(Map<String, Object> params) throws IOException, JRException {
+		Reportes dto = new Reportes();
+		dto.setFileName("ordencompra.pdf");
+		ByteArrayOutputStream stream = export(params);
+		byte[] bs = stream.toByteArray();
+		dto.setStream(new ByteArrayInputStream(bs));
+		dto.setLength(bs.length);
+		return dto;
 	}
 	
 }
