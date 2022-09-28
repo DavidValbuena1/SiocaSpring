@@ -20,4 +20,5 @@ public interface ProveedorService {
 	public Proveedor eliminarProveedorPorId(int id);
 	
 	public Reportes obtenerReporteProveedores(Map<String, Object> params) throws IOException, JRException;
+	public Proveedor buscarPorNombre(String nombre);
 }

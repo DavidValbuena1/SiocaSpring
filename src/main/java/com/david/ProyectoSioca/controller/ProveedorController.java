@@ -71,5 +71,10 @@ public class ProveedorController {
 		
 		return ResponseEntity.ok().header("Content-Disposition", "inline; filename=\""+dto.getFileName()+"\"").contentLength(dto.getLength()).contentType(mediatype).body(streamResource);
 	}
+	
+	@PostMapping(path= {"/buscarPorNombre"})
+	public Proveedor buscarPorNombre(@RequestBody String nombre) {
+		return service.buscarPorNombre(nombre);
+	}
 
 }

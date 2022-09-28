@@ -83,5 +83,10 @@ public class ProveedorImp implements ProveedorService{
 		dto.setLength(bs.length);
 		return dto;
 	}
+
+	@Override
+	public Proveedor buscarPorNombre(String nombre) {
+		return repositorio.buscarPorNombre(nombre);
+	}
 	
 }
