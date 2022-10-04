@@ -10,11 +10,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
 
 import com.david.ProyectoSioca.model.Reportes;
 import com.david.ProyectoSioca.model.Venta;
+import com.david.ProyectoSioca.model.VentasGrafico;
 import com.david.ProyectoSioca.repository.VentaRepository;
 import com.david.ProyectoSioca.service.VentaService;
 
@@ -77,7 +79,7 @@ public class VentaImp implements VentaService {
 	}
 
 	@Override
-	public Reportes obtenerReporteProveedores(Map<String, Object> params) throws IOException, JRException {
+	public Reportes obtenerReporte(Map<String, Object> params) throws IOException, JRException {
 		Reportes dto = new Reportes();
 		dto.setFileName("venta.pdf");
 		ByteArrayOutputStream stream = export(params);
@@ -86,5 +88,35 @@ public class VentaImp implements VentaService {
 		dto.setLength(bs.length);
 		return dto;
 	}
+
+    @Override
+    public Reportes ventasPorMes(Map<String, Object> params) throws IOException, JRException {
+        Reportes dto = new Reportes();
+        dto.setFileName("ventasgraficos.pdf");
+        ByteArrayOutputStream stream = exportarGrafico(params);
+        byte[] bs = stream.toByteArray();
+        dto.setStream(new ByteArrayInputStream(bs));
+        dto.setLength(bs.length);
+        return dto;
+    }
+    
+    public ByteArrayOutputStream exportarGrafico(Map<String,Object> params) throws JRException,IOException{
+        List<VentasGrafico> doc = new ArrayList<>();
+        doc = repositorio.ventasPorMes();
+        System.out.println(doc);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        File file= ResourceUtils.getFile("src//main//resources//graficoVenta.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JRBeanCollectionDataSource dataSource= new JRBeanCollectionDataSource(doc);
+        Map<String,Object> map = new HashMap<>();
+        map.put("createdBy", "David Valbuena");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map,dataSource);
+        JasperExportManager.exportReportToPdfStream(jasperPrint, stream);
+        return stream;
+    }
+
+    
+	
+	
 	
 }

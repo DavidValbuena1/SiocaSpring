@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jdbcDataAdapter class="net.sf.jasperreports.data.jdbc.JdbcDataAdapterImpl">
+  <name>conexionBD</name>
+  <classpath>C:\Users\juliana.suarez\Desktop\David\Eclipse Java\ProyectoSioca\src\main\resources\mysql-connector-java-8.0.29.jar</classpath>
+  <driver>com.mysql.jdbc.Driver</driver>
+  <username>David@proyectowebsioca</username>
+  <password>Tengopereza1.</password>
+  <url>jdbc:mysql://proyectowebsioca.mysql.database.azure.com/sioca</url>
+  <database></database>
+  <savePassword>true</savePassword>
+  <serverAddress></serverAddress>
+</jdbcDataAdapter>

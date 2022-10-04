@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.david.ProyectoSioca.model.Reportes;
 import com.david.ProyectoSioca.model.Venta;
+import com.david.ProyectoSioca.model.VentasGrafico;
 
 import net.sf.jasperreports.engine.JRException;
 
@@ -21,5 +23,6 @@ public interface VentaService {
 	public Venta eliminarVenta(int id);
 	
 	public int MaxId();
-	Reportes obtenerReporteProveedores(Map<String, Object> params) throws IOException, JRException;
+	public Reportes obtenerReporte(Map<String, Object> params) throws IOException, JRException;
+	public Reportes ventasPorMes(Map<String,Object> params) throws IOException, JRException;
 }
