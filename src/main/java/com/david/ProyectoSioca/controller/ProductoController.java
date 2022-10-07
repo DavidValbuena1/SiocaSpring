@@ -1,9 +1,14 @@
 package com.david.ProyectoSioca.controller;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.DataFormatException;
+import java.util.zip.Deflater;
+import java.util.zip.Inflater;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -20,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.david.ProyectoSioca.model.Producto;
 import com.david.ProyectoSioca.model.Reportes;
@@ -37,13 +43,20 @@ public class ProductoController {
 	
 	@GetMapping(path= {"/listar"})
 	public List<Producto> listar(){
-		return service.encontrarTodosLosProductos();
+	    List<Producto> lista = new ArrayList<>();
+	    lista = service.encontrarTodosLosProductos();
+	    for(Producto p: lista) {
+	        p.setByteimagen(descomprimitbites(p.getByteimagen()));
+	    }
+		return lista;
 	}
 	
 	@GetMapping(path= {"/listarId/{id}"})
 	public Producto encontrarProducto(@PathVariable("id") int id) {
-		
-		return service.buscarProductoPorId(id);
+		Producto p = new Producto();
+		p=service.buscarProductoPorId(id);
+		p.setByteimagen(descomprimitbites(p.getByteimagen()));
+		return p;
 	}
 	
 	@PostMapping(path = {"/agregar"})
@@ -77,5 +90,53 @@ public class ProductoController {
 		
 		
 		return ResponseEntity.ok().header("Content-Disposition", "inline; filename=\""+dto.getFileName()+"\"").contentLength(dto.getLength()).contentType(mediatype).body(streamResource);
+	}
+	
+	@PutMapping(path= {"/subirImagen/{id}"})
+	public Producto subirImagen(@RequestParam("imagen") MultipartFile file, @PathVariable("id") int id) throws IOException{
+	    Producto p = new Producto();
+	    p = service.buscarProductoPorId(id);
+	    p.setNombreimagen(file.getOriginalFilename());
+	    p.setTipoimagen(file.getContentType());
+	    p.setByteimagen(comprimirbites(file.getBytes()));
+	    return service.editarProducto(p);
+	}
+	
+	public static byte[] comprimirbites(byte[] data) {
+	    Deflater deflater = new Deflater();
+	    deflater.setInput(data);
+	    deflater.finish();
+	    
+	    ByteArrayOutputStream output = new ByteArrayOutputStream();
+	    byte[] buffer = new byte[1024];
+	    while(!deflater.finished()) {
+	        int count = deflater.deflate(buffer);
+	        output.write(buffer,0,count);
+	    }
+	    
+	    try {
+	        output.close();
+	    }catch(IOException e) {
+	        
+	    }
+	    return output.toByteArray();
+	}
+	
+	public static byte[] descomprimitbites(byte[] data) {
+	    Inflater inflater = new Inflater();
+	    inflater.setInput(data);
+	    ByteArrayOutputStream output = new ByteArrayOutputStream();
+	    byte[] buffer = new byte[1024];
+	    try {
+	        while(!inflater.finished()) {
+	            int count = inflater.inflate(buffer);
+	            output.write(buffer,0,count);
+	        }
+	        output.close();
+	    }catch(IOException e) {      
+	    } catch (DataFormatException e) {
+        }
+	    
+	    return output.toByteArray();
 	}
 }

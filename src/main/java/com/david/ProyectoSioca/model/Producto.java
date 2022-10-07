@@ -53,8 +53,43 @@ public class Producto implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="Id_proveedor")
 	private Proveedor proveedor;
+	
+	@Column
+	private String nombreimagen;
+	
+	@Column
+	private String tipoimagen;
+	
+	@Column
+	private byte[] byteimagen;
+	
+	
 
-	public int getId_producto() {
+	public String getNombreimagen() {
+        return nombreimagen;
+    }
+
+    public void setNombreimagen(String nombreimagen) {
+        this.nombreimagen = nombreimagen;
+    }
+
+    public String getTipoimagen() {
+        return tipoimagen;
+    }
+
+    public void setTipoimagen(String tipoimagen) {
+        this.tipoimagen = tipoimagen;
+    }
+
+    public byte[] getByteimagen() {
+        return byteimagen;
+    }
+
+    public void setByteimagen(byte[] byteimagen) {
+        this.byteimagen = byteimagen;
+    }
+
+    public int getId_producto() {
 		return id_producto;
 	}
 
