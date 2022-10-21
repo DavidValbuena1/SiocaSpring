@@ -108,7 +108,7 @@ public class ProductoController {
 	    deflater.finish();
 	    
 	    ByteArrayOutputStream output = new ByteArrayOutputStream();
-	    byte[] buffer = new byte[1024];
+	    byte[] buffer = new byte[2048];
 	    while(!deflater.finished()) {
 	        int count = deflater.deflate(buffer);
 	        output.write(buffer,0,count);
@@ -126,7 +126,7 @@ public class ProductoController {
 	    Inflater inflater = new Inflater();
 	    inflater.setInput(data);
 	    ByteArrayOutputStream output = new ByteArrayOutputStream();
-	    byte[] buffer = new byte[1024];
+	    byte[] buffer = new byte[2048];
 	    try {
 	        while(!inflater.finished()) {
 	            int count = inflater.inflate(buffer);
