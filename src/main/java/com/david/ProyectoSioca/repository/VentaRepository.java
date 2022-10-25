@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
-import org.springframework.http.ResponseEntity;
 
 import com.david.ProyectoSioca.model.Venta;
 import com.david.ProyectoSioca.model.VentasGrafico;

@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.david.ProyectoSioca.model.Reportes;
 import com.david.ProyectoSioca.model.Venta;
-import com.david.ProyectoSioca.model.VentasGrafico;
 import com.david.ProyectoSioca.service.VentaService;
 
 import net.sf.jasperreports.engine.JRException;

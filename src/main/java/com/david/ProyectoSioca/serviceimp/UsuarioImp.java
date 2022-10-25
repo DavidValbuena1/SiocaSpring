@@ -14,6 +14,10 @@ public class UsuarioImp implements UsuarioService{
 	
 	@Autowired(required=true)
 	private UsuarioRepository repositorio;
+	
+	@Autowired(required=true)
+	private SendEmail email;
+	
 
 	@Override
 	public List<Usuario> encontrarTodosLosUsuarios() {
@@ -43,6 +47,19 @@ public class UsuarioImp implements UsuarioService{
 	@Override
 	public Usuario verificar(String correo, String contraseña) {
 		return repositorio.verificar(correo, contraseña);
+	}
+
+	@Override
+	public boolean recuperar(String correo) {
+		Usuario u = new Usuario();
+		u = repositorio.recuperar(correo);
+		System.out.println(u);
+		if(u!=null) {
+			System.out.println("Hola");
+			email.recuperarContraseñaEmail(u.getCorreo());
+			return true;
+		}
+		return false;
 	}
 	
 	

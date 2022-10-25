@@ -4,12 +4,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.david.ProyectoSioca.model.Reportes;
 import com.david.ProyectoSioca.model.Venta;
-import com.david.ProyectoSioca.model.VentasGrafico;
 
 import net.sf.jasperreports.engine.JRException;
 

@@ -56,4 +56,13 @@ public class UsuarioController {
 		System.out.println(u.getCorreo()+"---"+ u.getContraseña());
 		return service.verificar(u.getCorreo(), u.getContraseña());
 	}
+	
+	
+	@PostMapping(path={"/recuperar"})
+	public String recuperar(@RequestBody Usuario u) {
+		if(service.recuperar(u.getCorreo())) {
+			return "Ese correo no existe";
+		}
+		return "Correo enviado";
+	}
 }
