@@ -41,7 +41,7 @@ public class TipoDocumentoController {
 	
 	@PutMapping(path= {"/editar/{id}"})
 	public TipoDocumento editarTipo(@RequestBody TipoDocumento td, @PathVariable("id") int id) {
-		td.setIdTipoDocumento(id);
+		td.setIdtipodocumento(id);
 		return service.editarTipo(td);
 	}
 	

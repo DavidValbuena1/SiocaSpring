@@ -43,15 +43,19 @@ public class TipoDocumento implements Serializable {
 				+ "]";
 	}
 
-	public int getIdTipoDocumento() {
-		return idtipodocumento;
-	}
+	public int getIdtipodocumento() {
+        return idtipodocumento;
+    }
 
-	public void setIdTipoDocumento(int idTipoDocumento) {
-		idtipodocumento = idTipoDocumento;
-	}
+    public void setIdtipodocumento(int idtipodocumento) {
+        this.idtipodocumento = idtipodocumento;
+    }
 
-	public String getNombre() {
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public String getNombre() {
 		return Nombre;
 	}
 

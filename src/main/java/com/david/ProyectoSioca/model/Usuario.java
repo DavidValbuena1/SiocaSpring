@@ -29,8 +29,8 @@ public class Usuario implements Serializable {
 
 	@Column
 	private String Num_identificacion_usuario;
-
-	@Column(name="Nombres_usuario")
+	
+    @Column(name="Nombres_usuario")
 	private String Nombres;
 
 	@Column(name="Apellidos_usuario")
@@ -103,13 +103,15 @@ public class Usuario implements Serializable {
 		this.id_usuario = id_usuario;
 	}
 
-	public String getNum_Identificacion_usuario() {
-		return Num_identificacion_usuario;
-	}
 
-	public void setNum_Identificacion_usuario(String num_Identificacion_usuario) {
-		this.Num_identificacion_usuario = num_Identificacion_usuario;
-	}
+    public String getNum_identificacion_usuario() {
+        return Num_identificacion_usuario;
+    }
+
+    public void setNum_identificacion_usuario(String num_identificacion_usuario) {
+        Num_identificacion_usuario = num_identificacion_usuario;
+    }
+
 
 	public String getNombres() {
 		return Nombres;
