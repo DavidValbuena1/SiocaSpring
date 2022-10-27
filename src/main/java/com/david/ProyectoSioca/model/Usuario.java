@@ -50,7 +50,7 @@ public class Usuario implements Serializable {
 	private Date Fecha;
 
 	@Column(name = "Contraseña_usuario")
-	private String contraseña;
+	private String contrasena;
 
 	@Column(name = "Confirmar_contraseña_usuario")
 	private String confirmar;
@@ -68,7 +68,7 @@ public class Usuario implements Serializable {
 	public String toString() {
 		return "Usuario [id_usuario=" + id_usuario + ", Num_Identificacion_usuario=" + Num_identificacion_usuario
 				+ ", Nombres=" + Nombres + ", Apellidos=" + Apellidos + ", Correo=" + Correo + ", Telefono=" + Telefono
-				+ ", Direccion=" + Direccion + ", Fecha=" + Fecha + ", contraseña=" + contraseña + ", confirmar="
+				+ ", Direccion=" + Direccion + ", Fecha=" + Fecha + ", contraseña=" + contrasena + ", confirmar="
 				+ confirmar + ", Rol=" + Rol + ", TipoDocumento=" + TipoDocumento + "]";
 	}
 
@@ -84,7 +84,7 @@ public class Usuario implements Serializable {
 		Telefono = telefono;
 		Direccion = direccion;
 		Fecha = fecha;
-		this.contraseña = contraseña;
+		this.contrasena = contraseña;
 		this.confirmar = confirmar;
 		Rol = rol;
 		TipoDocumento = tipoDocumento;
@@ -161,15 +161,17 @@ public class Usuario implements Serializable {
 		Fecha = fecha;
 	}
 
-	public String getContraseña() {
-		return contraseña;
-	}
+	
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
-	}
+	public String getContrasena() {
+        return contrasena;
+    }
 
-	public String getConfirmar() {
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public String getConfirmar() {
 		return confirmar;
 	}
 
