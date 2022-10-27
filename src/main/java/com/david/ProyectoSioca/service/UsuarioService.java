@@ -16,5 +16,5 @@ public interface UsuarioService {
 	public Usuario borrarUsuarioPorId(int id);
 	
 	public Usuario verificar(String correo, String contraseña);
-	public boolean recuperar(String correo);
+	public boolean recuperar(String correo,String codigo);
 }

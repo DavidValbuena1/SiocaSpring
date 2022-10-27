@@ -50,13 +50,13 @@ public class UsuarioImp implements UsuarioService{
 	}
 
 	@Override
-	public boolean recuperar(String correo) {
+	public boolean recuperar(String correo,String codigo) {
 		Usuario u = new Usuario();
 		u = repositorio.recuperar(correo);
 		System.out.println(u);
 		if(u!=null) {
 			System.out.println("Hola");
-			email.recuperarContraseñaEmail(u.getCorreo());
+			email.recuperarContraseñaEmail(u.getCorreo(),codigo);
 			return true;
 		}
 		return false;
