@@ -53,8 +53,8 @@ public class UsuarioController {
 	
 	@PostMapping(path= {"/verificar"})
 	public Usuario verificar(@RequestBody Usuario u) {
-		System.out.println(u.getCorreo()+"---"+ u.getContraseña());
-		return service.verificar(u.getCorreo(), u.getContraseña());
+		System.out.println(u.getCorreo()+"---"+ u.getContrasena());
+		return service.verificar(u.getCorreo(), u.getContrasena());
 	}
 	
 	
