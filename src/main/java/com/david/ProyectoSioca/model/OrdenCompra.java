@@ -27,7 +27,6 @@ public class OrdenCompra implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date Fecha;
 
-	
 	private byte estado;
 	
 	private int valortotal;

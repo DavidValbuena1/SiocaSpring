@@ -8,4 +8,6 @@ import com.david.ProyectoSioca.model.RecuperarContraseña;
 public interface RecuperarContraseñaService {
 	
 	public RecuperarContraseña validar(String codigorecuperar, String correo);
+	
+	public RecuperarContraseña insertar(RecuperarContraseña r);
 }

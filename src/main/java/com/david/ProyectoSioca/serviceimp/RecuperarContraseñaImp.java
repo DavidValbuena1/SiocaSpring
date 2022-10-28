@@ -19,4 +19,12 @@ public class RecuperarContraseñaImp implements RecuperarContraseñaService {
 		return repository.validar(codigorecuperar, Correo);
 	}
 
+	@Override
+	public RecuperarContraseña insertar(RecuperarContraseña r) {
+		return repository.save(r);
+	}
+
+	
+	
+
 }

@@ -3,6 +3,8 @@ package com.david.ProyectoSioca.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.david.ProyectoSioca.model.RecuperarContraseña;
@@ -59,13 +60,12 @@ public class UsuarioController {
 	
 	@PostMapping(path= {"/verificar"})
 	public Usuario verificar(@RequestBody Usuario u) {
-		System.out.println(u.getCorreo()+"---"+ u.getContrasena());
 		return service.verificar(u.getCorreo(), u.getContrasena());
 	}
 	
 	
 	@PostMapping(path={"/recuperar"})
-	public String recuperar(@RequestBody Usuario u) {
+	public ResponseEntity<Usuario> recuperar(@RequestBody Usuario u) {
 		String[] letters = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
 		String[] numbers = {"0","1","2","3","4","5","6","7","8","9"};
 		String color = "";
@@ -73,20 +73,27 @@ public class UsuarioController {
 			color += letters[(int) Math.round(Math.random() * 25)];
 			color += numbers[(int) Math.round(Math.random() * 9)];
 		}
-		if(service.recuperar(u.getCorreo(),color)==true) {
-			System.out.println(color);
-			return "Correo enviado";
+		u=service.recuperar(u.getCorreo(),color);
+		if(u!=null) {
+			RecuperarContraseña r = new RecuperarContraseña();
+			r.setUsuario(u);
+			r.setCodigorecuperacion(color);
+			r.setEstado((byte) 1);
+			RecuperarService.insertar(r);
+			return new ResponseEntity<Usuario>(u,null,HttpStatus.CREATED);
 		}
-		return "Correo no existe";
+		return new ResponseEntity<Usuario>(u,null,HttpStatus.NOT_FOUND);
 	}
 
 	@PostMapping(path= {"/validarCodigo"})
-	public Usuario validarCodigo (@RequestParam String codigorecuperacion, @RequestParam String correo) {
+	public Usuario validarCodigo (@RequestBody RecuperarContraseña r) {
 		Usuario u = new Usuario();
 		RecuperarContraseña recuperarContraseña = new RecuperarContraseña();
-		recuperarContraseña = RecuperarService.validar(codigorecuperacion, correo);
+		recuperarContraseña = RecuperarService.validar(r.getCodigorecuperacion(), r.getUsuario().getCorreo());
 		if(recuperarContraseña!=null) {
 			u = service.encontrarUsuarioPorId(recuperarContraseña.getUsuario().getId_usuario());
+			r.setEstado((byte) 0);
+			RecuperarService.insertar(recuperarContraseña);
 		}else {
 			u=null;
 		}
