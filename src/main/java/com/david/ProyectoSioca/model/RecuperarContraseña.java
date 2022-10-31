@@ -1,6 +1,7 @@
 package com.david.ProyectoSioca.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 @Entity
@@ -34,6 +37,10 @@ public class RecuperarContraseña implements Serializable{
 
 	@Column
 	private byte estado;
+	
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date horadecreacion;
 	
 	public int getId() {
 		return id;
@@ -71,11 +78,21 @@ public class RecuperarContraseña implements Serializable{
 		return serialVersionUID;
 	}
 
+	public Date getHoradecreacion() {
+		return horadecreacion;
+	}
+
+	public void setHoradecreacion(Date horadecreacion) {
+		this.horadecreacion = horadecreacion;
+	}
+
 	@Override
 	public String toString() {
 		return "RecuperarContraseña [id=" + id + ", codigorecuperacion=" + codigorecuperacion + ", usuario=" + usuario
-				+ ", estado=" + estado + "]";
+				+ ", estado=" + estado + ", horadecreacion=" + horadecreacion + "]";
 	}
+	
+	
 
 	
 	

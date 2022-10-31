@@ -18,4 +18,6 @@ public interface UsuarioRepository extends Repository<Usuario, Integer> {
 	
 	@Query("SELECT u FROM Usuario u WHERE u.Correo = ?1")
 	public Usuario recuperar(String correo);
+	
+	
 }
