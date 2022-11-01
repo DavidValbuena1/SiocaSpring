@@ -100,6 +100,7 @@ public class UsuarioController {
 			DateFormat hoy = new SimpleDateFormat("yyyy/MM/dd HH-mm-ss");   
 			String fecha = hoy.format(new Date()).toString();
 			Date date = hoy.parse(fecha);
+			System.out.println("hola");
 			System.out.println(date);
 			r.setHoradecreacion(date);
 			RecuperarService.insertar(recuperarContraseña);
