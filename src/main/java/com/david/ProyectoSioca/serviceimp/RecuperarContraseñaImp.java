@@ -36,14 +36,14 @@ public class RecuperarContraseñaImp implements RecuperarContraseñaService {
 		return repository.codigosactivos();
 	}
 
-	@Scheduled(fixedRate = 1000)
-	public void tarea() {
-		List<RecuperarContraseña> codigos = new ArrayList<>();
-		codigos = codigosactivos();
-		DateFormat hoy = new SimpleDateFormat("yyyy/MM/dd HH/mm/ss");
-		Date fechahoy = hoy.format(new Date());
-		for(RecuperarContraseña c : codigos) {
-		}
-	}
+// 	@Scheduled(fixedRate = 1000)
+// 	public void tarea() {
+// 		List<RecuperarContraseña> codigos = new ArrayList<>();
+// 		codigos = codigosactivos();
+// 		DateFormat hoy = new SimpleDateFormat("yyyy/MM/dd HH/mm/ss");
+// 		Date fechahoy = hoy.format(new Date());
+// 		for(RecuperarContraseña c : codigos) {
+// 		}
+// 	}
 	
 }
