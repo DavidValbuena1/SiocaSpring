@@ -1,5 +1,9 @@
 package com.david.ProyectoSioca.controller;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,13 +90,18 @@ public class UsuarioController {
 	}
 
 	@PostMapping(path= {"/validarCodigo"})
-	public Usuario validarCodigo (@RequestBody RecuperarContraseña r) {
+	public Usuario validarCodigo (@RequestBody RecuperarContraseña r) throws ParseException {
 		Usuario u = new Usuario();
 		RecuperarContraseña recuperarContraseña = new RecuperarContraseña();
 		recuperarContraseña = RecuperarService.validar(r.getCodigorecuperacion(), r.getUsuario().getCorreo());
 		if(recuperarContraseña!=null) {
 			u = service.encontrarUsuarioPorId(recuperarContraseña.getUsuario().getId_usuario());
 			r.setEstado((byte) 0);
+			DateFormat hoy = new SimpleDateFormat("yyyy/MM/dd HH-mm-ss");   
+			String fecha = hoy.format(new Date()).toString();
+			Date date = hoy.parse(fecha);
+			System.out.println(date);
+			r.setHoradecreacion(date);
 			RecuperarService.insertar(recuperarContraseña);
 		}else {
 			u=null;
