@@ -76,9 +76,9 @@ public class OrdenCompraController {
 	}
 	
 	@PostMapping(path= {"/generarReporte"})
-	public String generarReporte(@RequestBody List<DetalleOrdenCompra> doc) throws FileNotFoundException, JRException {
-		String frase="";
-		frase= serviceImp.exportarReporte(doc);
+	public DetalleOrdenCompra generarReporte(@RequestBody List<DetalleOrdenCompra> doc) throws FileNotFoundException, JRException {
+		serviceImp.exportarReporte(doc);
+		DetalleOrdenCompra frase = new DetalleOrdenCompra();
 		return frase;
 	}
 	
