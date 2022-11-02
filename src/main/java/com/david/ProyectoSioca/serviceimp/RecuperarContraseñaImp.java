@@ -1,9 +1,10 @@
 package com.david.ProyectoSioca.serviceimp;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,14 +37,21 @@ public class RecuperarContraseñaImp implements RecuperarContraseñaService {
 		return repository.codigosactivos();
 	}
 
-// 	@Scheduled(fixedRate = 1000)
-// 	public void tarea() {
-// 		List<RecuperarContraseña> codigos = new ArrayList<>();
-// 		codigos = codigosactivos();
-// 		DateFormat hoy = new SimpleDateFormat("yyyy/MM/dd HH/mm/ss");
-// 		Date fechahoy = hoy.format(new Date());
-// 		for(RecuperarContraseña c : codigos) {
-// 		}
-// 	}
+ 	@Scheduled(fixedRate = 1000*10)
+ 	public void tarea() {
+ 		List<RecuperarContraseña> codigos = new ArrayList<>();
+		codigos = codigosactivos();
+		LocalDateTime hoy = LocalDateTime.now();
+		LocalDateTime fecha;
+ 		for(RecuperarContraseña c : codigos) {
+ 			fecha = c.getHoradecreacion().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+ 			
+ 			long diferenciadesegundos = ChronoUnit.SECONDS.between(fecha, hoy);
+ 			if(diferenciadesegundos>1800) {
+ 				c.setEstado((byte) 0);				
+ 				repository.save(c);
+ 			}
+ 		}
+ 	}
 	
 }

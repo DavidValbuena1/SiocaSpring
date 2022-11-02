@@ -3,6 +3,8 @@ package com.david.ProyectoSioca.controller;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
@@ -83,8 +85,10 @@ public class UsuarioController {
             r.setUsuario(u);
             r.setCodigorecuperacion(color);
             r.setEstado((byte) 1);
-            DateFormat hoy = new SimpleDateFormat("yyyy/MM/dd HH-mm-ss");   
-            String fecha = hoy.format(new Date()).toString();
+            DateFormat hoy = new SimpleDateFormat("yyyy/MM/dd HH-mm-ss");  
+            LocalDateTime datetime = LocalDateTime.now();
+            Date ingresocodigo = Date.from(datetime.atZone(ZoneId.systemDefault()).toInstant());
+            String fecha = hoy.format(ingresocodigo).toString();
             Date date;
             date = hoy.parse(fecha);
             System.out.println("hola");
