@@ -71,9 +71,19 @@ public class ProductoController {
 	
 	@PutMapping(path= {"/editar/{id}"})
 	public Producto editarProducto(@RequestBody Producto p, @PathVariable("id") int id) {
-		p.setId_producto(id);
-		p.setPrecioTotal(p.getQuantity()*p.getPrice());
-		return service.editarProducto(p);
+		Producto producto = new Producto();
+		producto = service.buscarProductoPorId(id);
+		producto.setDate(p.getDate());
+		producto.setNombre(p.getNombre());
+		producto.setPrecioTotal(p.getQuantity()*p.getPrice());
+		producto.setPrice(p.getPrice());
+		producto.setProveedor(p.getProveedor());
+		producto.setQuantity(p.getQuantity());
+		producto.setReference(p.getReference());
+		producto.setSize(p.getSize());
+		producto.setType(p.getType());
+		System.out.println(producto);
+		return service.editarProducto(producto);
 	}
 	
 	@DeleteMapping(path= {"/eliminar/{id}"})

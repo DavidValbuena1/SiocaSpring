@@ -1,6 +1,7 @@
 package com.david.ProyectoSioca.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -199,10 +200,8 @@ public class Producto implements Serializable{
 	public String toString() {
 		return "Producto [id_producto=" + id_producto + ", Size=" + Size + ", Nombre=" + Nombre + ", Reference="
 				+ Reference + ", Quantity=" + Quantity + ", Price=" + Price + ", Date=" + Date + ", PrecioTotal="
-				+ PrecioTotal + ", Type=" + Type + ", proveedor=" + proveedor + "]";
+				+ PrecioTotal + ", Type=" + Type + ", proveedor=" + proveedor + ", nombreimagen=" + nombreimagen
+				+ ", tipoimagen=" + tipoimagen + ", byteimagen=" + Arrays.toString(byteimagen) + "]";
 	}
-
-	
-
 	
 }
