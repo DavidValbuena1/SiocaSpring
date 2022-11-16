@@ -114,6 +114,11 @@ public class VentaImp implements VentaService {
         return stream;
     }
 
+	@Override
+	public List<VentasGrafico> graficoVentas() {
+		return repositorio.ventasPorMes();
+	}
+
     
 	
 	

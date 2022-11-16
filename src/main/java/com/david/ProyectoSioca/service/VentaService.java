@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.david.ProyectoSioca.model.Reportes;
 import com.david.ProyectoSioca.model.Venta;
+import com.david.ProyectoSioca.model.VentasGrafico;
 
 import net.sf.jasperreports.engine.JRException;
 
@@ -23,4 +24,6 @@ public interface VentaService {
 	public int MaxId();
 	public Reportes obtenerReporte(Map<String, Object> params) throws IOException, JRException;
 	public Reportes ventasPorMes(Map<String,Object> params) throws IOException, JRException;
+	
+	public List<VentasGrafico> graficoVentas();
 }
