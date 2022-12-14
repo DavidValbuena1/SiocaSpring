@@ -81,4 +81,9 @@ public class ProductoImp implements ProductoService{
 		dto.setLength(bs.length);
 		return dto;
 	}
+
+	@Override
+	public List<Producto> encontrarProductoPorCategoria(int id) {
+		return repositorio.findByCategory(id);
+	}
 }

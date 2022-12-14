@@ -59,6 +59,11 @@ public class UsuarioImp implements UsuarioService{
 		}
 		return u;
 	}
+
+	@Override
+	public List<Usuario> usuariosPorRol(int id) {
+		return repositorio.usuarioPorRol(id);
+	}
 	
 	
 }

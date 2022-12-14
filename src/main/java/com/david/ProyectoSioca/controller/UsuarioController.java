@@ -44,8 +44,12 @@ public class UsuarioController {
 
     @GetMapping(path = { "/listarId/{id}" })
     public Usuario encontrarUsuario(@PathVariable("id") int id) {
-        System.out.println(service.encontrarUsuarioPorId(id));
         return service.encontrarUsuarioPorId(id);
+    }
+    
+    @GetMapping(path = {"/rol/{id}"})
+    public List<Usuario> usuariosPorRol(@PathVariable("id") int id){
+    	return service.usuariosPorRol(id);
     }
 
     @PostMapping(path = { "/agregar" })
@@ -91,8 +95,6 @@ public class UsuarioController {
             String fecha = hoy.format(ingresocodigo).toString();
             Date date;
             date = hoy.parse(fecha);
-            System.out.println("hola");
-            System.out.println(date);
             r.setHoradecreacion(date);
             RecuperarService.insertar(r);
             return new ResponseEntity<Usuario>(u, null, HttpStatus.CREATED);

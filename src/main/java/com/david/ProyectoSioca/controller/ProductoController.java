@@ -59,6 +59,16 @@ public class ProductoController {
 		return p;
 	}
 	
+	@GetMapping(path = {"/categoria/{id}"})
+	public List<Producto> encontrarProductoPorCategoria(@PathVariable("id") int id){
+		List<Producto> lista = new ArrayList<>();
+	    lista = service.encontrarProductoPorCategoria(id);
+	    for(Producto p: lista) {
+	        p.setByteimagen(descomprimitbites(p.getByteimagen()));
+	    }
+		return lista;
+	}
+	
 	@PostMapping(path = {"/agregar"})
 	public List<Producto> insertarProductos(@RequestBody List<Producto> p){
 		for(Producto pro: p) {

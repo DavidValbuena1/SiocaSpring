@@ -18,5 +18,6 @@ public interface ProductoService {
 	public Producto editarProducto(Producto p);
 	public Producto buscarProductoPorId(int id);
 	public Producto eliminarProductoPorId(int id);
+	public List<Producto> encontrarProductoPorCategoria(int id);
 	Reportes obtenerReporteProveedores(Map<String, Object> params) throws IOException, JRException;
 }

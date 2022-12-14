@@ -76,7 +76,7 @@ public class VentaController {
         InputStreamResource streamResource = new InputStreamResource(dto.getStream());
         MediaType mediatype = MediaType.APPLICATION_PDF;
 
-        return ResponseEntity.ok().header("Content-Disposition", "inline; filename=\"" + dto.getFileName() + "\"")
+        return ResponseEntity.ok().header("Content-Disposition", "inline; filename=\'" + dto.getFileName() + "\'")
                 .contentLength(dto.getLength()).contentType(mediatype).body(streamResource);
     }
 
@@ -87,7 +87,7 @@ public class VentaController {
         InputStreamResource streamResource = new InputStreamResource(dto.getStream());
         MediaType mediatype = MediaType.APPLICATION_PDF;
 
-        return ResponseEntity.ok().header("Content-Disposition", "inline; filename=\"" + dto.getFileName() + "\"")
+        return ResponseEntity.ok().header("Content-Disposition", "inline; filename=\'" + dto.getFileName() + "\'")
                 .contentLength(dto.getLength()).contentType(mediatype).body(streamResource);
     }
 

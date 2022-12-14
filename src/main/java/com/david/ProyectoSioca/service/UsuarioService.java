@@ -15,6 +15,8 @@ public interface UsuarioService {
 	public Usuario encontrarUsuarioPorId(int id);
 	public Usuario borrarUsuarioPorId(int id);
 	
+	public List<Usuario> usuariosPorRol(int id);
+	
 	public Usuario verificar(String correo, String contraseña);
 	public Usuario recuperar(String correo,String codigo);
 }
